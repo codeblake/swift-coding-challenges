@@ -40,6 +40,16 @@
 
  */
 
+/**
+ Check a string to see if it contains a collection of valid parentheses.
+
+ The algorithm iterates through each parentheses in the string and if it is an opening bracket, then append its matching bracket to the stack. If the currently checking parentheses is a closing bracket, peek the stack for a matching closing bracket. If a match does not exists, then the string is invalid, otherwise pop the bracket from stack and continue.
+
+ - Parameters
+ - s: the string to check for valid parentheses
+ - returns: a Boolean to indicate if the string is valid
+ - Complexity: O(n) time complexity and O(n) space complexity
+ */
 func isValid(_ s: String) -> Bool {
     var stack: [Character] = []
     for c in s {
