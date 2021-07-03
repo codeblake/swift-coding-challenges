@@ -32,9 +32,27 @@
 /*
  Recursive Naive Solution
  ========================
- This algorithm finds the return by calculating the two previous sub-problems.
-
+ This algorithm finds the return by calculating the two previous sub-problems using a top down approach.
  - Complexity: O(2^n) time and space complexity.
+
+ Example
+ -------
+ IN: 3
+
+ f(3) = f(1) + f(2)
+ f(2) = f(0) + f(1)
+ f(1) = f(-1) + f(0)
+ f(0) = 1
+ f(-1) = 0
+
+        __ 3 __
+       /       \
+      1         2
+     / \       / \
+   -1   0     0   1
+                 / \
+               -1   0
+
  */
 func climbStairsRecursive(_ n: Int) -> Int {
     if n < 0 { return 0 }
@@ -47,7 +65,6 @@ func climbStairsRecursive(_ n: Int) -> Int {
  ==============================
  A more optimum solution to the naive approach using memoization.
  Results are formed by finding the sum of the two previous sub-problems which are cached into a dictionary to prevent repeated computation.
-
  - Complexity: The time and space complexity of this algorithm is O(n).
  */
 func climbStairsRecursiveMemo(_ n: Int, _ memo: inout [Int:Int]) -> Int {
